@@ -1,0 +1,27 @@
+{
+  "name": "burakhan/php-apk-info",
+  "type": "library",
+  "description": "Android Manifest File Basic Reader",
+  "keywords": ["apk", "info", "android","php","AndroidManifest"],
+  "homepage": "https://github.com/Burakhan/ApkInfo",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Burakhan Özyol",
+      "email": "burakhanozyol@gmail.com",
+      "homepage": "http://burakhan.com"
+    }
+  ],
+  "require": {
+    "php": ">= 5.3.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "3.7.*"
+  },
+  "autoload": {
+    "psr-0": {
+      "ApkInfo": "src"
+    },
+    "classmap": ["src"]
+  }
+}
