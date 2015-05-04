@@ -30,16 +30,16 @@ PhpUnit 3.7+
     
 ### How to use
 
-<?php
-require 'vendor/autoload.php';
-
-$configuration = array(
-                         'tmp_path' => '/tmp',
-                         'lang_code' => 'tr'
-                     );
-                     
-$app = new \ApkInfo\Info(
-    'your_apk_file',
-    $configuration
-);
+    <?php
+    require 'vendor/autoload.php';
+    
+    $configuration = array(
+                             'tmp_path' => '/tmp',
+                             'lang_code' => 'tr'
+                         );
+                         
+    $app = new \ApkInfo\Info(
+        'your_apk_file',
+        $configuration
+    );
     
