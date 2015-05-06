@@ -53,18 +53,18 @@ class Manifest {
     public function getVersionName()
     {
         $parseVersion = $this->manifestFile->xpath('/manifest/@android:versionName');
-        return end($parseVersion)->versionName;
+        return (string)end($parseVersion)->versionName;
     }
 
     public function getVersionCode()
     {
         $parseVersion = $this->manifestFile->xpath('/manifest/@android:versionCode');
-        return end($parseVersion)->versionCode;
+        return (int)end($parseVersion)->versionCode;
     }
 
     public function getPackageName()
     {
-        return $this->manifestFile['package'];
+        return (string)$this->manifestFile['package'];
     }
 
     private function getSdk()
@@ -78,13 +78,13 @@ class Manifest {
     public function getMinSdkVersion()
     {
         $attr = $this->getSdk();
-        return $attr['minSdkVersion'];
+        return (int)$attr['minSdkVersion'];
     }
 
     public function getTargetSdkVersion()
     {
         $attr = $this->getSdk();
-        return $attr['targetSdkVersion'];
+        return (int)$attr['targetSdkVersion'];
     }
 
 
