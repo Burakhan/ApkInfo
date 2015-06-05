@@ -31,8 +31,9 @@ class Manifest {
         {
 
             $attr = $perm->attributes('http://schemas.android.com/apk/res/android');
+            $parsePermission = explode('.',$attr['name']);
 
-            $permissionName = end(explode('.',$attr['name']));
+            $permissionName = end($parsePermission);
 
             if(array_key_exists($permissionName,$this->lang->permissions))
             {
@@ -51,17 +52,19 @@ class Manifest {
 
     public function getVersionName()
     {
-        return end($this->manifestFile->xpath('/manifest/@android:versionName'))->versionName;
+        $parseVersion = $this->manifestFile->xpath('/manifest/@android:versionName');
+        return (string)end($parseVersion)->versionName;
     }
 
     public function getVersionCode()
     {
-        return end($this->manifestFile->xpath('/manifest/@android:versionCode'))->versionCode;
+        $parseVersion = $this->manifestFile->xpath('/manifest/@android:versionCode');
+        return (int)end($parseVersion)->versionCode;
     }
 
     public function getPackageName()
     {
-        return $this->manifestFile['package'];
+        return (string)$this->manifestFile['package'];
     }
 
     private function getSdk()
@@ -75,13 +78,13 @@ class Manifest {
     public function getMinSdkVersion()
     {
         $attr = $this->getSdk();
-        return $attr['minSdkVersion'];
+        return (int)$attr['minSdkVersion'];
     }
 
     public function getTargetSdkVersion()
     {
         $attr = $this->getSdk();
-        return $attr['targetSdkVersion'];
+        return (int)$attr['targetSdkVersion'];
     }
 
 
